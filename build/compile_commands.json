@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/home/st1322017/sys402-dist-store/build",
+  "command": "/usr/bin/c++ -DCARES_STATICLIB -I/home/st1322017/sys402-dist-store/build  -o CMakeFiles/protolib.dir/proto/hearty-store.pb.cc.o -c /home/st1322017/sys402-dist-store/build/proto/hearty-store.pb.cc",
+  "file": "/home/st1322017/sys402-dist-store/build/proto/hearty-store.pb.cc"
+},
+{
+  "directory": "/home/st1322017/sys402-dist-store/build",
+  "command": "/usr/bin/c++ -DCARES_STATICLIB -I/home/st1322017/sys402-dist-store/build  -o CMakeFiles/protolib.dir/proto/hearty-store.grpc.pb.cc.o -c /home/st1322017/sys402-dist-store/build/proto/hearty-store.grpc.pb.cc",
+  "file": "/home/st1322017/sys402-dist-store/build/proto/hearty-store.grpc.pb.cc"
+},
+{
+  "directory": "/home/st1322017/sys402-dist-store/build",
+  "command": "/usr/bin/c++ -DCARES_STATICLIB -I/home/st1322017/sys402-dist-store/build  -o CMakeFiles/server.dir/src/hearty-store-server.cpp.o -c /home/st1322017/sys402-dist-store/src/hearty-store-server.cpp",
+  "file": "/home/st1322017/sys402-dist-store/src/hearty-store-server.cpp"
+}
+]

@@ -1,3 +1,0 @@
-# Hashes of file build rules.
-aed9fd17600969c53db6b1c937039836 proto/hello.grpc.pb.h
-b4790c8157e26828bd36c048395633a6 proto/hello.pb.h

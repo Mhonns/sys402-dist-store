@@ -1,0 +1,3 @@
+# Hashes of file build rules.
+58fa20c5599e1d24c3cc06e9b923c1c4 proto/hearty-store.grpc.pb.h
+18fc244a3aeddfb16766a66b3a530c5a proto/hearty-store.pb.h
