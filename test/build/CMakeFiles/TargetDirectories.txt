@@ -1,0 +1,5 @@
+/home/st1322017/sys402-dist-store/test/build/CMakeFiles/protolib.dir
+/home/st1322017/sys402-dist-store/test/build/CMakeFiles/server.dir
+/home/st1322017/sys402-dist-store/test/build/CMakeFiles/client.dir
+/home/st1322017/sys402-dist-store/test/build/CMakeFiles/edit_cache.dir
+/home/st1322017/sys402-dist-store/test/build/CMakeFiles/rebuild_cache.dir
