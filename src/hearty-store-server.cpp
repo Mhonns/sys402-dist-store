@@ -6,7 +6,7 @@
 #include <proto/hearty-store.grpc.pb.h>
 #include <proto/hearty-store.pb.h>
 #include <grpcpp/server_builder.h>
-#include "../include/hearty-store-common.hpp"
+#include "../include/hearty-store-server.hpp"
 
 namespace fs = std::filesystem;
 

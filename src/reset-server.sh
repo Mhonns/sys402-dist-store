@@ -6,6 +6,7 @@ rm -rf /tmp/hearty
 
 # Create a dummy file for testing
 echo "Dummy text for put and get test" > ../build/TestTransfer.txt
+echo "Dummy text for Caching test" > ../build/TestCaching.txt
 
 # Build and run the server
 cd ../build

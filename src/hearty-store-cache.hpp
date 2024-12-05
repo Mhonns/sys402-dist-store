@@ -1,3 +1,4 @@
+#pragma once
 #include <grpcpp/grpcpp.h>
 #include <proto/hearty-store.grpc.pb.h>
 #include <proto/hearty-store.pb.h>
@@ -6,6 +7,7 @@
 #include <unordered_map>
 #include <filesystem>
 #include <fstream>
+#include <ctime>
 
 // Cache entry structure
 struct CacheEntry {
@@ -22,17 +24,11 @@ private:
     std::queue<std::string> fifo_queue;
     std::string cache_dir;
 
-    /*
-     * @brief Evict the oldest file if the cache is full
-     * 
-     * @param stub client stub
-     */
     void evictIfNeeded(ProcessingService::Stub* stub) {
         if (fifo_queue.size() >= MAX_CACHE_SIZE) {
             std::string to_evict = fifo_queue.front();
             fifo_queue.pop();
             
-            // If dirty, write back to server
             if (cache_map[to_evict].is_dirty) {
                 putRequest put_request;
                 putResponse put_response;
@@ -41,34 +37,21 @@ private:
                 stub->Put(&context, put_request, &put_response);
             }
             
-            // Remove from cache
             std::filesystem::remove(cache_dir + "/" + to_evict);
             cache_map.erase(to_evict);
         }
     }
 
 public:
-    /**
-     * @brief Construct a new Client Cache object
-     */
     ClientCache() {
         cache_dir = "/tmp/hearty-store-cache";
         std::filesystem::create_directories(cache_dir);
     }
 
-    /**
-     * @brief Add file to cache
-     * 
-     * @param file_id file id
-     * @param file_path file path
-     * @param content file content
-     * @param stub client stub
-     */
     void cacheFile(const std::string& file_id, const std::string& file_path, 
-                  const std::string& content, ProcessingService::Stub* stub) {
+                   const std::string& content, ProcessingService::Stub* stub) {
         evictIfNeeded(stub);
         
-        // Add to cache to hte file
         std::string cache_path = cache_dir + "/" + file_id;
         std::ofstream cache_file(cache_path);
         cache_file << content;
@@ -79,51 +62,26 @@ public:
         fifo_queue.push(file_id);
     }
 
-    /**
-     * @brief Check if file is in cache
-     * 
-     * @param file_id file id
-     * @return true if file is in cache
-     * @return false if file is not in cache
-     */
     bool isInCache(const std::string& file_id) {
         return cache_map.find(file_id) != cache_map.end();
     }
 
-    /**
-     * @brief Get file content from cache
-     * 
-     * @param file_id file id
-     * @return file content
-     */
     std::string getFromCache(const std::string& file_id) {
         if (!isInCache(file_id)) return "";
         
         std::string cache_path = cache_dir + "/" + file_id;
         std::ifstream cache_file(cache_path);
         std::string content((std::istreambuf_iterator<char>(cache_file)),
-                           std::istreambuf_iterator<char>());
+                            std::istreambuf_iterator<char>());
         return content;
     }
 
-    /**
-     * @brief Mark file as dirty (for write-back)
-     * 
-     * @param file_id file id
-     */
     void markDirty(const std::string& file_id) {
         if (isInCache(file_id)) {
             cache_map[file_id].is_dirty = true;
         }
     }
 
-    /**
-     * @brief Make a request to the server and cache the result if possible.
-     * 
-     * @param file_id file id
-     * @param stub client stub
-     * @return file content
-     */
     std::string makeCacheableGetRequest(const std::string& file_id, 
                                         const std::unique_ptr<ProcessingService::Stub>& stub) {
         std::string accumulated_content = "";
@@ -151,49 +109,4 @@ public:
         }
         return accumulated_content;
     }
-};
-
-int main() {
-    // Create a channel to connect to the server
-    auto channel = grpc::CreateChannel("localhost:2546", grpc::InsecureChannelCredentials());
-    std::unique_ptr<ProcessingService::Stub> stub = ProcessingService::NewStub(channel);
-
-    // Prepare the init request message.
-    initRequest init_request;
-    initResponse init_response;
-    grpc::ClientContext init_context;
-    init_request.set_store_name("40");
-    grpc::Status status = stub->Init(&init_context, init_request, &init_response);
-    std::cout << "Client: Init Sent" << std::endl;
-    if (status.ok()) {
-        std::cout << "Status: " << init_response.message() << std::endl;
-    }
-
-    // Prepare the put request message.
-    putRequest put_request;
-    putResponse put_response;
-    grpc::ClientContext put_context;
-    put_request.set_store_name("40");
-    put_request.set_file_path("TestTransfer.txt");
-    status = stub->Put(&put_context, put_request, &put_response);
-    std::cout << "Client: Put Sent" << std::endl;
-    if (status.ok()) {
-        std::cout << "Status: Success with id:" << put_response.message() << std::endl;
-    }
-
-    // Target file id
-    std::string file_id = put_response.message();
-
-    // Initialize cache
-    ClientCache cache;
-
-    // First time getting the file.
-    std::string content_request = cache.makeCacheableGetRequest(file_id, stub);
-    std::cout << "Content from request?: " << content_request << std::endl;
-
-    // Second time getting the file.
-    std::string content_cache = cache.makeCacheableGetRequest(file_id, stub);
-    std::cout << "Content from cache?: " << content_cache << std::endl;
-
-    return 0;
-}
+}; 
