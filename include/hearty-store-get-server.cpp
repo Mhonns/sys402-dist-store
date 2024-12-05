@@ -9,16 +9,12 @@
  * 
  * @copyright Copyright (c) 2024
  */
-#include <iostream>
-#include <fstream>
 #include <algorithm>
-#include "hearty-store-common.hpp"
-
 #include <iostream>
 #include <fstream>
 #include <vector>
 #include <filesystem>
-#include "hearty-store-common.hpp"
+#include "hearty-store-server.hpp"
 
 /**
  * @brief Retrieve an object by its ID from the store or reconstruct it if necessary.

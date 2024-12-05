@@ -18,7 +18,7 @@
 #include <random>
 #include <chrono>
 #include <cstring>
-#include "hearty-store-common.hpp"
+#include "hearty-store-server.hpp"
 
 /**
  * @brief Generates a unique ID by combining a timestamp and a random number.

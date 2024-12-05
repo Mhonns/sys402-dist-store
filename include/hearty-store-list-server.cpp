@@ -12,7 +12,7 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
-#include "hearty-store-common.hpp"
+#include "hearty-store-server.hpp"
 
 /**
  * @brief Lists all available stores and their metadata.

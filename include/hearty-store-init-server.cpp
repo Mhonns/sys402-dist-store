@@ -14,7 +14,7 @@
 #include <filesystem>
 #include <string>
 #include <cstring>
-#include "hearty-store-common.hpp"
+#include "hearty-store-server.hpp"
 
 /**
  * @brief Initializes a new store with the given ID.

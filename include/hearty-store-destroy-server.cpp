@@ -12,7 +12,7 @@
 #include <iostream>
 #include <string>
 #include <filesystem>
-#include "hearty-store-common.hpp"
+#include "hearty-store-server.hpp"
 namespace fs = std::filesystem;
 
 /**
