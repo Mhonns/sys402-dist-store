@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+message initRequest {
+    string store_name = 1;
+}
+
+message initResponse {
+    bool success = 1;
+    string message = 2;
+}
+
+message putRequest {
+    string store_name = 1;
+    string file_path = 2;
+}
+
+message putResponse {
+    bool success = 1;
+    string message = 2;
+}
+
+message getRequest {
+    string store_name = 1;
+    string file_identifier = 2;
+}
+
+message getResponse {
+    bool success = 1;
+    string message = 2;
+    string file_content = 3;
+}
+
+message listRequest {}
+
+message listResponse {
+    bool success = 1;
+    string message = 2;
+}
+
+message destroyRequest {
+    string store_name = 1;
+}
+
+message destroyResponse {
+    bool success = 1;
+    string message = 2;
+}
+
+service ProcessingService {
+    rpc Init(initRequest) returns (initResponse);
+    rpc Put(putRequest) returns (putResponse);
+    rpc Get(getRequest) returns (stream getResponse);
+    rpc List(listRequest) returns (listResponse);
+    rpc Destroy(destroyRequest) returns (destroyResponse);
+}
