@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/st1322017/sys402-dist-store/simple-grpc
+CMAKE_SOURCE_DIR = /home/st1322017/sys402-dist-store/simple-grpc-test
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/st1322017/sys402-dist-store/simple-grpc/build
+CMAKE_BINARY_DIR = /home/st1322017/sys402-dist-store/simple-grpc-test/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -85,14 +85,14 @@ clean: CMakeFiles/client.dir/clean
 CMakeFiles/protolib.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/protolib.dir/build.make CMakeFiles/protolib.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/protolib.dir/build.make CMakeFiles/protolib.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/st1322017/sys402-dist-store/simple-grpc/build/CMakeFiles --progress-num=3,4,5,6,7 "Built target protolib"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/st1322017/sys402-dist-store/simple-grpc-test/build/CMakeFiles --progress-num=3,4,5,6,7 "Built target protolib"
 .PHONY : CMakeFiles/protolib.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/protolib.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/st1322017/sys402-dist-store/simple-grpc/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/st1322017/sys402-dist-store/simple-grpc-test/build/CMakeFiles 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/protolib.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/st1322017/sys402-dist-store/simple-grpc/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/st1322017/sys402-dist-store/simple-grpc-test/build/CMakeFiles 0
 .PHONY : CMakeFiles/protolib.dir/rule
 
 # Convenience name for target.
@@ -111,14 +111,14 @@ CMakeFiles/protolib.dir/clean:
 CMakeFiles/server.dir/all: CMakeFiles/protolib.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/st1322017/sys402-dist-store/simple-grpc/build/CMakeFiles --progress-num=8,9 "Built target server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/st1322017/sys402-dist-store/simple-grpc-test/build/CMakeFiles --progress-num=8,9 "Built target server"
 .PHONY : CMakeFiles/server.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/server.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/st1322017/sys402-dist-store/simple-grpc/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/st1322017/sys402-dist-store/simple-grpc-test/build/CMakeFiles 7
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/server.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/st1322017/sys402-dist-store/simple-grpc/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/st1322017/sys402-dist-store/simple-grpc-test/build/CMakeFiles 0
 .PHONY : CMakeFiles/server.dir/rule
 
 # Convenience name for target.
@@ -137,14 +137,14 @@ CMakeFiles/server.dir/clean:
 CMakeFiles/client.dir/all: CMakeFiles/protolib.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/st1322017/sys402-dist-store/simple-grpc/build/CMakeFiles --progress-num=1,2 "Built target client"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/st1322017/sys402-dist-store/simple-grpc-test/build/CMakeFiles --progress-num=1,2 "Built target client"
 .PHONY : CMakeFiles/client.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/client.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/st1322017/sys402-dist-store/simple-grpc/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/st1322017/sys402-dist-store/simple-grpc-test/build/CMakeFiles 7
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/client.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/st1322017/sys402-dist-store/simple-grpc/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/st1322017/sys402-dist-store/simple-grpc-test/build/CMakeFiles 0
 .PHONY : CMakeFiles/client.dir/rule
 
 # Convenience name for target.

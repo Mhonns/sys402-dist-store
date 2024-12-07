@@ -1,6 +1,7 @@
 # Install required dependencies
 sudo apt update
 sudo apt install -y build-essential autoconf libtool pkg-config cmake git
+sudo apt-get install libssl-dev
 
 # Clone and install Protocol Buffers
 git clone https://github.com/protocolbuffers/protobuf.git

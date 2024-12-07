@@ -1,5 +1,5 @@
 CMakeFiles/client.dir/src/client.cc.o: \
- /home/st1322017/sys402-dist-store/simple-grpc/src/client.cc \
+ /home/st1322017/sys402-dist-store/simple-grpc-test/src/client.cc \
  /usr/include/stdc-predef.h /usr/local/include/grpcpp/grpcpp.h \
  /usr/local/include/grpc/grpc.h \
  /usr/local/include/grpc/support/port_platform.h /usr/include/features.h \
@@ -433,8 +433,8 @@ CMakeFiles/client.dir/src/client.cc.o: \
  /usr/local/include/grpcpp/security/authorization_policy_provider.h \
  /usr/local/include/grpcpp/server_posix.h \
  /usr/local/include/grpcpp/version_info.h \
- /home/st1322017/sys402-dist-store/simple-grpc/build/proto/hello.grpc.pb.h \
- /home/st1322017/sys402-dist-store/simple-grpc/build/proto/hello.pb.h \
+ /home/st1322017/sys402-dist-store/simple-grpc-test/build/proto/hello.grpc.pb.h \
+ /home/st1322017/sys402-dist-store/simple-grpc-test/build/proto/hello.pb.h \
  /usr/local/include/google/protobuf/port_def.inc \
  /usr/local/include/google/protobuf/port_undef.inc \
  /usr/local/include/google/protobuf/io/coded_stream.h \

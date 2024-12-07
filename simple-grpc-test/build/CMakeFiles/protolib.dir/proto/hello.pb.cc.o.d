@@ -1,7 +1,7 @@
 CMakeFiles/protolib.dir/proto/hello.pb.cc.o: \
- /home/st1322017/sys402-dist-store/simple-grpc/build/proto/hello.pb.cc \
+ /home/st1322017/sys402-dist-store/simple-grpc-test/build/proto/hello.pb.cc \
  /usr/include/stdc-predef.h \
- /home/st1322017/sys402-dist-store/simple-grpc/build/proto/hello.pb.h \
+ /home/st1322017/sys402-dist-store/simple-grpc-test/build/proto/hello.pb.h \
  /usr/include/c++/11/limits \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \

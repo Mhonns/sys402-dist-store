@@ -1,22 +1,22 @@
 [
 {
-  "directory": "/home/st1322017/sys402-dist-store/simple-grpc/build",
-  "command": "/usr/bin/c++ -DCARES_STATICLIB -I/home/st1322017/sys402-dist-store/simple-grpc/build  -o CMakeFiles/protolib.dir/proto/hello.pb.cc.o -c /home/st1322017/sys402-dist-store/simple-grpc/build/proto/hello.pb.cc",
-  "file": "/home/st1322017/sys402-dist-store/simple-grpc/build/proto/hello.pb.cc"
+  "directory": "/home/st1322017/sys402-dist-store/simple-grpc-test/build",
+  "command": "/usr/bin/c++ -DCARES_STATICLIB -I/home/st1322017/sys402-dist-store/simple-grpc-test/build  -o CMakeFiles/protolib.dir/proto/hello.pb.cc.o -c /home/st1322017/sys402-dist-store/simple-grpc-test/build/proto/hello.pb.cc",
+  "file": "/home/st1322017/sys402-dist-store/simple-grpc-test/build/proto/hello.pb.cc"
 },
 {
-  "directory": "/home/st1322017/sys402-dist-store/simple-grpc/build",
-  "command": "/usr/bin/c++ -DCARES_STATICLIB -I/home/st1322017/sys402-dist-store/simple-grpc/build  -o CMakeFiles/protolib.dir/proto/hello.grpc.pb.cc.o -c /home/st1322017/sys402-dist-store/simple-grpc/build/proto/hello.grpc.pb.cc",
-  "file": "/home/st1322017/sys402-dist-store/simple-grpc/build/proto/hello.grpc.pb.cc"
+  "directory": "/home/st1322017/sys402-dist-store/simple-grpc-test/build",
+  "command": "/usr/bin/c++ -DCARES_STATICLIB -I/home/st1322017/sys402-dist-store/simple-grpc-test/build  -o CMakeFiles/protolib.dir/proto/hello.grpc.pb.cc.o -c /home/st1322017/sys402-dist-store/simple-grpc-test/build/proto/hello.grpc.pb.cc",
+  "file": "/home/st1322017/sys402-dist-store/simple-grpc-test/build/proto/hello.grpc.pb.cc"
 },
 {
-  "directory": "/home/st1322017/sys402-dist-store/simple-grpc/build",
-  "command": "/usr/bin/c++ -DCARES_STATICLIB -I/home/st1322017/sys402-dist-store/simple-grpc/build  -o CMakeFiles/server.dir/src/server.cc.o -c /home/st1322017/sys402-dist-store/simple-grpc/src/server.cc",
-  "file": "/home/st1322017/sys402-dist-store/simple-grpc/src/server.cc"
+  "directory": "/home/st1322017/sys402-dist-store/simple-grpc-test/build",
+  "command": "/usr/bin/c++ -DCARES_STATICLIB -I/home/st1322017/sys402-dist-store/simple-grpc-test/build  -o CMakeFiles/server.dir/src/server.cc.o -c /home/st1322017/sys402-dist-store/simple-grpc-test/src/server.cc",
+  "file": "/home/st1322017/sys402-dist-store/simple-grpc-test/src/server.cc"
 },
 {
-  "directory": "/home/st1322017/sys402-dist-store/simple-grpc/build",
-  "command": "/usr/bin/c++ -DCARES_STATICLIB -I/home/st1322017/sys402-dist-store/simple-grpc/build  -o CMakeFiles/client.dir/src/client.cc.o -c /home/st1322017/sys402-dist-store/simple-grpc/src/client.cc",
-  "file": "/home/st1322017/sys402-dist-store/simple-grpc/src/client.cc"
+  "directory": "/home/st1322017/sys402-dist-store/simple-grpc-test/build",
+  "command": "/usr/bin/c++ -DCARES_STATICLIB -I/home/st1322017/sys402-dist-store/simple-grpc-test/build  -o CMakeFiles/client.dir/src/client.cc.o -c /home/st1322017/sys402-dist-store/simple-grpc-test/src/client.cc",
+  "file": "/home/st1322017/sys402-dist-store/simple-grpc-test/src/client.cc"
 }
 ]

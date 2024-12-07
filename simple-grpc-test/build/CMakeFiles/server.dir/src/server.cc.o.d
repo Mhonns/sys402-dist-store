@@ -1,5 +1,5 @@
 CMakeFiles/server.dir/src/server.cc.o: \
- /home/st1322017/sys402-dist-store/simple-grpc/src/server.cc \
+ /home/st1322017/sys402-dist-store/simple-grpc-test/src/server.cc \
  /usr/include/stdc-predef.h /usr/local/include/grpc/grpc.h \
  /usr/local/include/grpc/support/port_platform.h /usr/include/features.h \
  /usr/include/features-time64.h \
@@ -48,8 +48,8 @@ CMakeFiles/server.dir/src/server.cc.o: \
  /usr/local/include/grpc/status.h /usr/local/include/grpc/slice_buffer.h \
  /usr/local/include/grpc/impl/connectivity_state.h \
  /usr/local/include/grpc/impl/propagation_bits.h \
- /home/st1322017/sys402-dist-store/simple-grpc/build/proto/hello.grpc.pb.h \
- /home/st1322017/sys402-dist-store/simple-grpc/build/proto/hello.pb.h \
+ /home/st1322017/sys402-dist-store/simple-grpc-test/build/proto/hello.grpc.pb.h \
+ /home/st1322017/sys402-dist-store/simple-grpc-test/build/proto/hello.pb.h \
  /usr/include/c++/11/limits \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \

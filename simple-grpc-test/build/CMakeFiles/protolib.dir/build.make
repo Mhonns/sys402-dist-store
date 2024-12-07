@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/st1322017/sys402-dist-store/simple-grpc
+CMAKE_SOURCE_DIR = /home/st1322017/sys402-dist-store/simple-grpc-test
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/st1322017/sys402-dist-store/simple-grpc/build
+CMAKE_BINARY_DIR = /home/st1322017/sys402-dist-store/simple-grpc-test/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/protolib.dir/depend.make
@@ -70,15 +70,15 @@ include CMakeFiles/protolib.dir/progress.make
 include CMakeFiles/protolib.dir/flags.make
 
 proto/hello.pb.h: ../proto/hello.proto
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/st1322017/sys402-dist-store/simple-grpc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Running cpp protocol buffer compiler on proto/hello.proto"
-	/usr/local/bin/protoc-25.0.0 --cpp_out :/home/st1322017/sys402-dist-store/simple-grpc/build -I /home/st1322017/sys402-dist-store/simple-grpc /home/st1322017/sys402-dist-store/simple-grpc/proto/hello.proto
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/st1322017/sys402-dist-store/simple-grpc-test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Running cpp protocol buffer compiler on proto/hello.proto"
+	/usr/local/bin/protoc-25.0.0 --cpp_out :/home/st1322017/sys402-dist-store/simple-grpc-test/build -I /home/st1322017/sys402-dist-store/simple-grpc-test /home/st1322017/sys402-dist-store/simple-grpc-test/proto/hello.proto
 
 proto/hello.pb.cc: proto/hello.pb.h
 	@$(CMAKE_COMMAND) -E touch_nocreate proto/hello.pb.cc
 
 proto/hello.grpc.pb.h: ../proto/hello.proto
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/st1322017/sys402-dist-store/simple-grpc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Running grpc protocol buffer compiler on proto/hello.proto"
-	/usr/local/bin/protoc-25.0.0 --grpc_out :/home/st1322017/sys402-dist-store/simple-grpc/build --plugin=protoc-gen-grpc=/usr/local/bin/grpc_cpp_plugin -I /home/st1322017/sys402-dist-store/simple-grpc /home/st1322017/sys402-dist-store/simple-grpc/proto/hello.proto
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/st1322017/sys402-dist-store/simple-grpc-test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Running grpc protocol buffer compiler on proto/hello.proto"
+	/usr/local/bin/protoc-25.0.0 --grpc_out :/home/st1322017/sys402-dist-store/simple-grpc-test/build --plugin=protoc-gen-grpc=/usr/local/bin/grpc_cpp_plugin -I /home/st1322017/sys402-dist-store/simple-grpc-test /home/st1322017/sys402-dist-store/simple-grpc-test/proto/hello.proto
 
 proto/hello.grpc.pb.cc: proto/hello.grpc.pb.h
 	@$(CMAKE_COMMAND) -E touch_nocreate proto/hello.grpc.pb.cc
@@ -86,30 +86,30 @@ proto/hello.grpc.pb.cc: proto/hello.grpc.pb.h
 CMakeFiles/protolib.dir/proto/hello.pb.cc.o: CMakeFiles/protolib.dir/flags.make
 CMakeFiles/protolib.dir/proto/hello.pb.cc.o: proto/hello.pb.cc
 CMakeFiles/protolib.dir/proto/hello.pb.cc.o: CMakeFiles/protolib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/st1322017/sys402-dist-store/simple-grpc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/protolib.dir/proto/hello.pb.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/protolib.dir/proto/hello.pb.cc.o -MF CMakeFiles/protolib.dir/proto/hello.pb.cc.o.d -o CMakeFiles/protolib.dir/proto/hello.pb.cc.o -c /home/st1322017/sys402-dist-store/simple-grpc/build/proto/hello.pb.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/st1322017/sys402-dist-store/simple-grpc-test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/protolib.dir/proto/hello.pb.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/protolib.dir/proto/hello.pb.cc.o -MF CMakeFiles/protolib.dir/proto/hello.pb.cc.o.d -o CMakeFiles/protolib.dir/proto/hello.pb.cc.o -c /home/st1322017/sys402-dist-store/simple-grpc-test/build/proto/hello.pb.cc
 
 CMakeFiles/protolib.dir/proto/hello.pb.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/protolib.dir/proto/hello.pb.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/st1322017/sys402-dist-store/simple-grpc/build/proto/hello.pb.cc > CMakeFiles/protolib.dir/proto/hello.pb.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/st1322017/sys402-dist-store/simple-grpc-test/build/proto/hello.pb.cc > CMakeFiles/protolib.dir/proto/hello.pb.cc.i
 
 CMakeFiles/protolib.dir/proto/hello.pb.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/protolib.dir/proto/hello.pb.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/st1322017/sys402-dist-store/simple-grpc/build/proto/hello.pb.cc -o CMakeFiles/protolib.dir/proto/hello.pb.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/st1322017/sys402-dist-store/simple-grpc-test/build/proto/hello.pb.cc -o CMakeFiles/protolib.dir/proto/hello.pb.cc.s
 
 CMakeFiles/protolib.dir/proto/hello.grpc.pb.cc.o: CMakeFiles/protolib.dir/flags.make
 CMakeFiles/protolib.dir/proto/hello.grpc.pb.cc.o: proto/hello.grpc.pb.cc
 CMakeFiles/protolib.dir/proto/hello.grpc.pb.cc.o: CMakeFiles/protolib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/st1322017/sys402-dist-store/simple-grpc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/protolib.dir/proto/hello.grpc.pb.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/protolib.dir/proto/hello.grpc.pb.cc.o -MF CMakeFiles/protolib.dir/proto/hello.grpc.pb.cc.o.d -o CMakeFiles/protolib.dir/proto/hello.grpc.pb.cc.o -c /home/st1322017/sys402-dist-store/simple-grpc/build/proto/hello.grpc.pb.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/st1322017/sys402-dist-store/simple-grpc-test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/protolib.dir/proto/hello.grpc.pb.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/protolib.dir/proto/hello.grpc.pb.cc.o -MF CMakeFiles/protolib.dir/proto/hello.grpc.pb.cc.o.d -o CMakeFiles/protolib.dir/proto/hello.grpc.pb.cc.o -c /home/st1322017/sys402-dist-store/simple-grpc-test/build/proto/hello.grpc.pb.cc
 
 CMakeFiles/protolib.dir/proto/hello.grpc.pb.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/protolib.dir/proto/hello.grpc.pb.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/st1322017/sys402-dist-store/simple-grpc/build/proto/hello.grpc.pb.cc > CMakeFiles/protolib.dir/proto/hello.grpc.pb.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/st1322017/sys402-dist-store/simple-grpc-test/build/proto/hello.grpc.pb.cc > CMakeFiles/protolib.dir/proto/hello.grpc.pb.cc.i
 
 CMakeFiles/protolib.dir/proto/hello.grpc.pb.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/protolib.dir/proto/hello.grpc.pb.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/st1322017/sys402-dist-store/simple-grpc/build/proto/hello.grpc.pb.cc -o CMakeFiles/protolib.dir/proto/hello.grpc.pb.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/st1322017/sys402-dist-store/simple-grpc-test/build/proto/hello.grpc.pb.cc -o CMakeFiles/protolib.dir/proto/hello.grpc.pb.cc.s
 
 # Object files for target protolib
 protolib_OBJECTS = \
@@ -123,7 +123,7 @@ libprotolib.a: CMakeFiles/protolib.dir/proto/hello.pb.cc.o
 libprotolib.a: CMakeFiles/protolib.dir/proto/hello.grpc.pb.cc.o
 libprotolib.a: CMakeFiles/protolib.dir/build.make
 libprotolib.a: CMakeFiles/protolib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/st1322017/sys402-dist-store/simple-grpc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library libprotolib.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/st1322017/sys402-dist-store/simple-grpc-test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library libprotolib.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/protolib.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/protolib.dir/link.txt --verbose=$(VERBOSE)
 
@@ -139,6 +139,6 @@ CMakeFiles/protolib.dir/depend: proto/hello.grpc.pb.cc
 CMakeFiles/protolib.dir/depend: proto/hello.grpc.pb.h
 CMakeFiles/protolib.dir/depend: proto/hello.pb.cc
 CMakeFiles/protolib.dir/depend: proto/hello.pb.h
-	cd /home/st1322017/sys402-dist-store/simple-grpc/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/st1322017/sys402-dist-store/simple-grpc /home/st1322017/sys402-dist-store/simple-grpc /home/st1322017/sys402-dist-store/simple-grpc/build /home/st1322017/sys402-dist-store/simple-grpc/build /home/st1322017/sys402-dist-store/simple-grpc/build/CMakeFiles/protolib.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/st1322017/sys402-dist-store/simple-grpc-test/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/st1322017/sys402-dist-store/simple-grpc-test /home/st1322017/sys402-dist-store/simple-grpc-test /home/st1322017/sys402-dist-store/simple-grpc-test/build /home/st1322017/sys402-dist-store/simple-grpc-test/build /home/st1322017/sys402-dist-store/simple-grpc-test/build/CMakeFiles/protolib.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/protolib.dir/depend
 

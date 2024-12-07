@@ -1,4 +1,4 @@
-# Install script for directory: /home/st1322017/sys402-dist-store/simple-grpc
+# Install script for directory: /home/st1322017/sys402-dist-store/simple-grpc-test
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/st1322017/sys402-dist-store/simple-grpc/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/st1322017/sys402-dist-store/simple-grpc-test/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
