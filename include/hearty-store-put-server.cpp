@@ -228,7 +228,6 @@ void recoverFromLog(int store_id) {
         entry.type = static_cast<LogEntry::LogType>(type);
         
         // Parse entry based on type
-        std::cout << "Type: " << entry.type << std::endl;
         switch(entry.type) {
             case LogEntry::ALLOCATE:
                 std::getline(ss, token);
@@ -290,6 +289,9 @@ void recoverFromLog(int store_id) {
                     break;
             }
         }
+
+        LogEntry commit_entry{LogEntry::COMMIT};
+        writeLogEntry(store_id, commit_entry);
     }
     
     // Clear log file after recovery
