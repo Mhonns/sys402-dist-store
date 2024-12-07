@@ -28,6 +28,21 @@ struct StoreMetadata {
     size_t used_blocks;      // Number of blocks currently in use
 };
 
+struct LogEntry {
+    enum LogType {
+        ALLOCATE,
+        PUT_FILE,
+        ADD_ENTRY,
+        COMMIT
+    } type;
+    int block_index;
+    std::string checksum;
+    std::string old_block_data;
+    std::string object_id;
+    size_t data_size;
+    std::string file_path;
+};
+
 // Utility functions
 namespace utils {
     inline std::string getStorePath(int store_id) {
@@ -42,11 +57,19 @@ namespace utils {
         return getStorePath(store_id) + META_FILENAME;
     }
 
+    inline std::string getLogPath(int store_id) {
+        return getStorePath(store_id) + "-log.txt";
+    }
+
     // Checks if a store exists
     inline bool storeExists(int store_id) {
         return std::filesystem::exists(getStorePath(store_id));
     }
 }
+
+std::string calculateMD5(const std::string& data);
+void writeLogEntry(int store_id, const LogEntry& entry);
+void recoverFromLog(int store_id);
 
 #endif // HEARTY_STORE_COMMON_HPP
 
