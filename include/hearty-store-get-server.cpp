@@ -45,10 +45,12 @@ std::string get(int store_id, const std::string object_id) {
         }
     }
 
-    // Find block
+    // Find block with matching object id
     int block_num = -1;
     for (size_t i = 0; i < NUM_BLOCKS; i++) {
-        if (block_metadata[i].is_used && block_metadata[i].object_id == object_id) {
+        if (block_metadata[i].is_used && 
+            strncmp(block_metadata[i].object_id, object_id.c_str(), 
+                    sizeof(block_metadata[i].object_id) - 1) == 0) {
             block_num = i;
             break;
         }
@@ -71,6 +73,7 @@ std::string get(int store_id, const std::string object_id) {
     }
 
     if (buffer.empty()) {
+        std::cerr << "Buffer is empty" << std::endl;
         return "";
     }
     

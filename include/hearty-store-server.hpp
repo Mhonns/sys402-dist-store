@@ -12,13 +12,13 @@ const std::string BASE_PATH = "/tmp/hearty";        // Default path to storage
 const std::string DATA_FILENAME = "/data.bin";      // Actual data file name
 const std::string META_FILENAME = "/metadata.bin";  // Meta data file name
 const std::string STORE_DIR = "/store_";            // Default path to storage
-const std::string PARITY_FILENAME = "/parity.bin";   // parity filename
 
 struct BlockMetadata {
     bool is_used;           // Is this block currently storing an object
-    char object_id[256];    // Unique identifier for the object in this block
+    char object_id[32];     // Unique identifier for the object in this block
     size_t data_size;       // Actual size of data in the block
     time_t timestamp;       // Last modification time will be used for object ID
+    char file_path[128];    // File path of the object will be used for replacement
 };
 
 struct StoreMetadata {
@@ -51,7 +51,7 @@ namespace utils {
 #endif // HEARTY_STORE_COMMON_HPP
 
 bool initialize(int store_id);
-std::string put(int store_id, const std::string& file_path);
+std::string put(int store_id, const std::string& file_path, const std::string& file_content);
 std::string list_stores();
 std::string get(int store_id, const std::string object_id);
 bool destroy_store(int store_id);

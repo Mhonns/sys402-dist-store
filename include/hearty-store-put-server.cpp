@@ -44,10 +44,10 @@ std::string generateUniqueId() {
  * @brief   Stores a file in the storage system and performs associated updates.
  * 
  * @param store_id      target store id
- * @param file_path     The path of the file to be stored.
- * @return std::string The unique object ID assigned to the stored file, or an empty string on failure.
+ * @param file_content  The content of the file to be stored.
+ * @return std::string  The unique object ID assigned to the stored file, or an empty string on failure.
  */
-std::string put(int store_id, const std::string& file_path) {
+std::string put(int store_id, const std::string& file_path, const std::string& file_content) {
     // Load metadata
     StoreMetadata store_metadata{};
     std::vector<BlockMetadata> block_metadata(NUM_BLOCKS);
@@ -69,57 +69,58 @@ std::string put(int store_id, const std::string& file_path) {
         }
     }
 
-    // Check file size
-    uintmax_t file_size = std::filesystem::file_size(file_path);
-    if (file_size > BLOCK_SIZE) {
-        std::cerr << "File too large (max 1MB)" << std::endl;
-        return "";
-    }
-
-    // Find free block
+    std::string object_id = generateUniqueId();
+    // Find free block or replace existing file if file path matches
     int block_num = -1;
     for (size_t i = 0; i < NUM_BLOCKS; i++) {
+        // Find free block
         if (!block_metadata[i].is_used) {
             block_num = i;
             break;
         }
+        // Replace existing file if file path matches but same id
+        else if (block_metadata[i].file_path == file_path) {
+            block_num = i;
+            object_id = block_metadata[i].object_id;
+            break; 
+        }
     }
 
+    // If no free blocks available, return empty string
     if (block_num == -1) {
         std::cerr << "No free blocks available" << std::endl;
         return "";
     }
 
+    // Check file size
+    uintmax_t file_size = file_content.size();
+    if (file_size > BLOCK_SIZE) {
+        std::cerr << "File too large (max 1MB)" << std::endl;
+        return "";
+    }
+
     // Write file to block
     {
-        std::string object_id = generateUniqueId();
-        std::ifstream input_file(file_path, std::ios::binary);
         std::fstream data_file(utils::getDataPath(store_id), 
                              std::ios::binary | std::ios::in | std::ios::out);
         
-        if (!input_file || !data_file) {
-            std::cerr << "Failed to open files" << std::endl;
+        if (!data_file) {
+            std::cerr << "Failed to open data.bin file" << std::endl;
             return "";
         }
 
         // Write data
-        data_file.seekp(block_num * BLOCK_SIZE);
-        std::vector<char> buffer(BLOCK_SIZE);
-        input_file.read(buffer.data(), BLOCK_SIZE);
-        size_t bytes_read = input_file.gcount();
-        data_file.write(buffer.data(), bytes_read);
-
-        if (data_file.fail()) {
-            std::cerr << "Failed to write data" << std::endl;
-            return "";
-        }
+        data_file << file_content;
+        size_t data_size = file_content.size();
 
         // Update metadata
         block_metadata[block_num].is_used = true;
         strncpy(block_metadata[block_num].object_id, object_id.c_str(), 
                 sizeof(block_metadata[block_num].object_id) - 1);
-        block_metadata[block_num].data_size = bytes_read;
+        block_metadata[block_num].data_size = file_size;
         block_metadata[block_num].timestamp = std::time(nullptr);
+        strncpy(block_metadata[block_num].file_path, file_path.c_str(), 
+                sizeof(block_metadata[block_num].file_path) - 1);
         store_metadata.used_blocks++;
 
         // Save metadata
@@ -149,6 +150,7 @@ std::string put(int store_id, const std::string& file_path) {
             std::cerr << "Failed to close metadata file properly" << std::endl;
             return "";
         }
+
         return object_id;
     }
 }
