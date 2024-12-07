@@ -25,6 +25,9 @@
  * @return false        - Failed to retrieve the object.
  */
 std::string get(int store_id, const std::string object_id) {
+    // Check if we need to recover first
+    recoverFromLog(store_id);
+    
     // Load metadata
     StoreMetadata store_metadata{};
     std::vector<BlockMetadata> block_metadata(NUM_BLOCKS);
