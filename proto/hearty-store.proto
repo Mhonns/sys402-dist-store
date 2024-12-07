@@ -12,11 +12,13 @@ message initResponse {
 message putRequest {
     string store_name = 1;
     string file_path = 2;
+    string file_content = 3;
 }
 
 message putResponse {
     bool success = 1;
-    string message = 2;
+    string file_id = 2;
+    string message = 3;
 }
 
 message getRequest {
@@ -46,10 +48,30 @@ message destroyResponse {
     string message = 2;
 }
 
+message cacheRequest {
+    string file_id = 1;
+}
+
+message cacheResponse {
+    bool success = 1;
+    string message = 2;
+}
+
+message evictRequest {
+    string file_id = 1;
+}
+
+message evictResponse {
+    bool success = 1;
+    string message = 2;
+}
+
 service ProcessingService {
     rpc Init(initRequest) returns (initResponse);
     rpc Put(putRequest) returns (putResponse);
     rpc Get(getRequest) returns (stream getResponse);
     rpc List(listRequest) returns (listResponse);
     rpc Destroy(destroyRequest) returns (destroyResponse);
+    rpc Cache(cacheRequest) returns (cacheResponse);
+    rpc Evict(evictRequest) returns (evictResponse);
 }
