@@ -1,5 +1,6 @@
 #!/bin/bash
 # Clean the storage and build directory
+rm -rf /tmp/hearty-store-cache
 rm -rf /tmp/hearty
 # rm -rf ../build
 # mkdir ../build

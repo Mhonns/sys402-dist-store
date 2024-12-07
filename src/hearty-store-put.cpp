@@ -1,4 +1,5 @@
 #include "hearty-store-common.hpp"
+#include "hearty-store-cache.hpp"
 
 int main(int argc, char* argv[]) {
     if (argc != 3) {
@@ -7,20 +8,15 @@ int main(int argc, char* argv[]) {
     }
 
     auto stub = create_stub();
+    ClientCache cache;
     
-    putRequest request;
-    putResponse response;
-    grpc::ClientContext context;
-    
-    request.set_store_name(argv[1]);
-    request.set_file_path(argv[2]);
-    
-    grpc::Status status = stub->Put(&context, request, &response);
-    
-    std::cout << "Put request sent" << std::endl;
-    if (status.ok()) {
-        std::cout << "Status: Success with id: " << response.message() << std::endl;
+    std::string file_id = cache.cacheablePutRequest(argv[1], argv[2], stub.get());
+    if (file_id.empty()) {
+        std::cout << "Failed to get file id" << std::endl;
+        return 1;
     }
+    
+    std::cout << "File id: " << file_id << std::endl;
     
     return 0;
 } 

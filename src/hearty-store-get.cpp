@@ -9,28 +9,13 @@ int main(int argc, char* argv[]) {
 
     auto stub = create_stub();
     
-    getRequest request;
-    getResponse response;
-    grpc::ClientContext context;
-    
-    request.set_store_name(argv[1]);
-    request.set_file_identifier(argv[2]);
-    
-    std::string accumulated_content;
-    std::unique_ptr<grpc::ClientReader<getResponse>> reader = stub->Get(&context, request);
-    
-    std::cout << "Get request sent" << std::endl;
-    while (reader->Read(&response)) {
-        if (!response.success()) {
-            std::cout << "Error: " << response.message() << std::endl;
-            return 1;
-        }
-        accumulated_content += response.file_content();
-    }
-    
-    grpc::Status status = reader->Finish();
-    if (status.ok()) {
-        std::cout << "Content from get:\n" << accumulated_content << std::endl;
+    ClientCache cache;
+    std::string content = cache.cacheableGetRequest(argv[1], argv[2], stub);
+    if (content.empty()) {
+        std::cout << "Error: Content is empty" << std::endl;
+        return 1;
+    } else {
+        std::cout << content << std::endl;
     }
     
     return 0;
