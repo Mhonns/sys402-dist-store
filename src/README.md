@@ -29,3 +29,12 @@
 
 ## Note
 Ensure the server is properly initialized before running any client-side tests or operations.
+
+## To check whether the GRPC is working run
+```bash
+cd /simple-grpc-test/build
+cmake ..
+make
+./server # For server
+./client # For client
+```
