@@ -43,3 +43,7 @@ add_executable(hearty-store-destroy src/hearty-store-destroy.cpp)
 foreach(TARGET hearty-store-init hearty-store-put hearty-store-list hearty-store-get hearty-store-destroy)
     target_link_libraries(${TARGET} protolib)
 endforeach()
+
+# Add an executable for the eviction client service
+add_executable(client-coherence-handler src/client-coherence-handler.cpp)
+target_link_libraries(client-coherence-handler protolib)
